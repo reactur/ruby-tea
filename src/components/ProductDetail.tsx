@@ -18,10 +18,10 @@ export default function ProductDetail({ product, onClose, onAddToCart }: Product
 
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4">
-      <div className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+      <div className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto relative rounded-lg">
         <button
           onClick={onClose}
-          className="sticky top-4 right-4 float-right p-2 hover:bg-gray-100"
+          className="sticky top-4 right-4 float-right p-2 hover:bg-gray-100 rounded-full"
         >
           <X className="w-6 h-6" />
         </button>
@@ -31,10 +31,10 @@ export default function ProductDetail({ product, onClose, onAddToCart }: Product
             <img
               src={product.image_url}
               alt={product.name}
-              className="w-full h-96 object-cover rounded-sm mb-8"
+              className="w-full h-96 object-cover rounded-lg mb-8"
             />
-            <h2 className="font-serif text-4xl mb-2">{product.name}</h2>
-            <p className="text-sm text-gray-600 mb-4">{product.category}</p>
+            <h2 className="font-serif text-4xl mb-2 text-amber-900">{product.name}</h2>
+            <p className="text-sm text-amber-700 mb-4">{product.category}</p>
             <p className="text-gray-700 leading-relaxed mb-6">
               {product.description}
             </p>
@@ -42,18 +42,18 @@ export default function ProductDetail({ product, onClose, onAddToCart }: Product
 
           <div className="border-t border-gray-200 pt-8">
             <div className="flex items-center justify-between mb-8">
-              <span className="font-serif text-3xl">{product.price.toFixed(0)}€</span>
+              <span className="font-serif text-3xl text-amber-900">${product.price.toFixed(2)}</span>
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-4 py-2 border border-gray-400 hover:bg-black hover:text-white transition-colors"
+                  className="px-4 py-2 border border-amber-700 hover:bg-amber-900 hover:text-white transition-colors"
                 >
-                  −
+                  -
                 </button>
                 <span className="w-8 text-center">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="px-4 py-2 border border-gray-400 hover:bg-black hover:text-white transition-colors"
+                  className="px-4 py-2 border border-amber-700 hover:bg-amber-900 hover:text-white transition-colors"
                 >
                   +
                 </button>
@@ -68,9 +68,9 @@ export default function ProductDetail({ product, onClose, onAddToCart }: Product
             </button>
 
             <div className="mt-8 text-xs text-gray-600 space-y-2">
-              <p>✓ Free shipping on orders over $50</p>
-              <p>✓ Free returns within 30 days</p>
-              <p>✓ Premium packaging included</p>
+              <p>Free shipping on orders over $50</p>
+              <p>Free returns within 30 days</p>
+              <p>Premium luxury packaging included</p>
             </div>
           </div>
         </div>

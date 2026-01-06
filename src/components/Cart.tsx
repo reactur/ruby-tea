@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import { supabase, type OrderItem } from '../lib/supabase';
+import { type OrderItem } from '../lib/supabase';
 import Checkout from './Checkout';
 
 interface CartProps {
@@ -48,16 +48,16 @@ export default function Cart({
           <X className="w-6 h-6" />
         </button>
 
-        <h2 className="font-serif text-4xl mb-8">Panier</h2>
+        <h2 className="font-serif text-4xl mb-8 text-amber-900">Your Cart</h2>
 
         {items.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-600 mb-6">Votre panier est vide</p>
+            <p className="text-gray-600 mb-6">Your cart is empty</p>
             <button
               onClick={onClose}
-              className="px-6 py-2 border border-black hover:bg-black hover:text-white transition-colors text-sm tracking-wider"
+              className="px-6 py-2 border border-amber-900 hover:bg-amber-900 hover:text-white transition-colors text-sm tracking-wider"
             >
-              Continuer vos achats
+              Continue Shopping
             </button>
           </div>
         ) : (
@@ -67,13 +67,13 @@ export default function Cart({
                 <div key={item.id} className="flex gap-6 pb-6 border-b border-gray-200">
                   <div className="flex-1">
                     <h4 className="font-serif text-lg mb-2">{item.name}</h4>
-                    <p className="text-sm text-gray-600 mb-4">{item.price.toFixed(0)}€</p>
+                    <p className="text-sm text-gray-600 mb-4">${item.price.toFixed(2)}</p>
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
                         className="px-2 py-1 border border-gray-300 hover:bg-gray-100"
                       >
-                        −
+                        -
                       </button>
                       <span className="w-8 text-center">{item.quantity}</span>
                       <button
@@ -86,13 +86,13 @@ export default function Cart({
                   </div>
                   <div className="text-right">
                     <p className="font-serif text-lg mb-6">
-                      {(item.price * item.quantity).toFixed(0)}€
+                      ${(item.price * item.quantity).toFixed(2)}
                     </p>
                     <button
                       onClick={() => onRemove(item.id)}
                       className="text-sm text-red-600 hover:text-red-700"
                     >
-                      Supprimer
+                      Remove
                     </button>
                   </div>
                 </div>
@@ -102,20 +102,20 @@ export default function Cart({
             <div className="border-t border-gray-200 pt-6 mb-8">
               <div className="flex justify-between text-lg font-serif mb-6">
                 <span>Total</span>
-                <span>{total.toFixed(0)}€</span>
+                <span>${total.toFixed(2)}</span>
               </div>
 
               <button
                 onClick={() => setShowCheckout(true)}
-                className="w-full py-4 bg-black text-white text-sm tracking-widest hover:bg-gray-900 transition-colors mb-3"
+                className="w-full py-4 bg-amber-900 text-white text-sm tracking-widest hover:bg-amber-800 transition-colors mb-3"
               >
-                PASSER LA COMMANDE
+                PROCEED TO CHECKOUT
               </button>
               <button
                 onClick={onClose}
-                className="w-full py-3 border border-black text-sm tracking-widest hover:bg-black hover:text-white transition-colors"
+                className="w-full py-3 border border-amber-900 text-sm tracking-widest hover:bg-amber-900 hover:text-white transition-colors"
               >
-                Continuer les achats
+                Continue Shopping
               </button>
             </div>
           </>

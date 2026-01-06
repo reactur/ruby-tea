@@ -52,7 +52,7 @@ export default function Shop({ isOpen, onClose, onAddToCart }: ShopProps) {
         </button>
 
         <div className="mb-12">
-          <h2 className="font-serif text-5xl mb-8">Boutique</h2>
+          <h2 className="font-serif text-5xl mb-8 text-amber-900">Our Blends</h2>
           <div className="flex gap-4 overflow-x-auto pb-4">
             {categories.map(cat => (
               <button
@@ -60,8 +60,8 @@ export default function Shop({ isOpen, onClose, onAddToCart }: ShopProps) {
                 onClick={() => setCategory(cat)}
                 className={`px-4 py-2 text-sm tracking-wider whitespace-nowrap ${
                   category === cat
-                    ? 'border-b-2 border-black'
-                    : 'text-gray-600 hover:text-black'
+                    ? 'border-b-2 border-amber-900 text-amber-900'
+                    : 'text-gray-600 hover:text-amber-900'
                 }`}
               >
                 {cat.toUpperCase()}
@@ -72,7 +72,7 @@ export default function Shop({ isOpen, onClose, onAddToCart }: ShopProps) {
 
         {loading ? (
           <div className="text-center py-12">
-            <p className="text-gray-600">Chargement...</p>
+            <p className="text-gray-600">Loading...</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">

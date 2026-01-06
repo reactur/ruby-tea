@@ -1,39 +1,40 @@
 export default function Heritage() {
   return (
-    <section className="py-32 px-6 bg-gray-50">
+    <section className="py-32 px-6 bg-gradient-to-br from-amber-50 to-orange-50">
       <div className="max-w-4xl mx-auto text-center">
-        <h3 className="font-serif text-5xl md:text-6xl font-light mb-8">
-          L'Héritage Goyard
+        <h3 className="font-serif text-5xl md:text-6xl font-light mb-8 text-amber-900">
+          The Essence
         </h3>
-        <div className="space-y-6 text-gray-700 leading-relaxed">
+        <div className="space-y-6 text-amber-900 leading-relaxed">
           <p className="text-lg">
-            Depuis 1853, la Maison Goyard perpétue un savoir-faire d'exception
-            dans l'art de la malle et du bagage de luxe.
+            Royal Ruby Ritual transforms the act of drinking tea into a sacred ceremony.
+            Each blend is a poetic journey, crafted to nourish the soul and awaken the senses.
           </p>
           <p>
-            Chaque création est le fruit d'un travail minutieux, réalisé dans nos
-            ateliers parisiens par des artisans malletiers qui transmettent leur
-            expertise de génération en génération.
+            Our master blenders source only the finest leaves from legendary estates,
+            combining ancient wisdom with modern artistry. Every tin is a work of art,
+            every cup a moment of reverence.
           </p>
           <p>
-            Le mythique motif Goyardine, avec ses chevrons entrelacés,
-            est devenu l'emblème d'une élégance discrète et intemporelle.
+            From the misty highlands of Darjeeling to the verdant gardens of Japan,
+            we bring you teas that honor tradition while inviting you into a personal ritual
+            of reflection and renewal.
           </p>
         </div>
 
-        <div className="mt-16 pt-16 border-t border-gray-300">
+        <div className="mt-16 pt-16 border-t border-amber-300">
           <div className="grid grid-cols-3 gap-8">
             <div>
-              <p className="font-serif text-4xl mb-2">1853</p>
-              <p className="text-sm tracking-wider text-gray-600">FONDATION</p>
+              <p className="font-serif text-4xl mb-2 text-amber-900">5</p>
+              <p className="text-sm tracking-wider text-amber-700">SIGNATURE BLENDS</p>
             </div>
             <div>
-              <p className="font-serif text-4xl mb-2">170+</p>
-              <p className="text-sm tracking-wider text-gray-600">ANNÉES</p>
+              <p className="font-serif text-4xl mb-2 text-amber-900">100%</p>
+              <p className="text-sm tracking-wider text-amber-700">PREMIUM QUALITY</p>
             </div>
             <div>
-              <p className="font-serif text-4xl mb-2">100%</p>
-              <p className="text-sm tracking-wider text-gray-600">ARTISANAL</p>
+              <p className="font-serif text-4xl mb-2 text-amber-900">SACRED</p>
+              <p className="text-sm tracking-wider text-amber-700">RITUAL</p>
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ export default function ProductCard({ product, onAddToCart, onClick }: ProductCa
     <div className="group">
       <div
         onClick={onClick}
-        className="aspect-[3/4] mb-4 bg-gradient-to-br from-gray-100 to-gray-200 cursor-pointer overflow-hidden rounded-sm"
+        className="aspect-[3/4] mb-4 bg-gradient-to-br from-amber-100 to-amber-200 cursor-pointer overflow-hidden rounded-lg"
       >
         <img
           src={product.image_url}
@@ -21,11 +21,11 @@ export default function ProductCard({ product, onAddToCart, onClick }: ProductCa
         />
       </div>
       <div onClick={onClick} className="cursor-pointer">
-        <h4 className="font-serif text-lg mb-2">{product.name}</h4>
-        <p className="text-sm text-gray-600 mb-3">{product.description}</p>
+        <h4 className="font-serif text-lg mb-2 text-amber-900">{product.name}</h4>
+        <p className="text-sm text-gray-600 mb-3 line-clamp-2">{product.description}</p>
       </div>
       <div className="flex items-center justify-between">
-        <span className="font-serif text-lg">{product.price.toFixed(0)}€</span>
+        <span className="font-serif text-lg text-amber-900">${product.price.toFixed(2)}</span>
         <button
           onClick={(e) => {
             e.stopPropagation();

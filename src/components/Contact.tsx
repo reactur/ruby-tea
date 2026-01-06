@@ -135,16 +135,16 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                 <div>
                   <h4 className="text-sm tracking-widest mb-3 text-amber-900">ADDRESS</h4>
                   <p className="text-gray-600 text-sm">
-                    123 Tea Garden Lane<br />
-                    Portland, OR 97204<br />
-                    United States
+                    G-208, Office Block<br />
+                    City Centra, Matigara<br />
+                    West Bengal - 734010
                   </p>
                 </div>
                 <div>
                   <h4 className="text-sm tracking-widest mb-3 text-amber-900">CONTACT</h4>
                   <p className="text-gray-600 text-sm">
-                    Tel: +1 (503) 555-0123<br />
-                    Email: hello@royalrubytea.com
+                    Tel: +91 99303 82663<br />
+                    Email: info@royalrubytea.com
                   </p>
                 </div>
               </div>
