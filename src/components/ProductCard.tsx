@@ -31,7 +31,7 @@ export default function ProductCard({ product, onAddToCart, onClick }: ProductCa
             e.stopPropagation();
             onAddToCart();
           }}
-          className="p-2 border border-gray-400 hover:bg-black hover:text-white transition-all duration-300"
+          className="p-2 border border-amber-700 hover:bg-amber-900 hover:text-white transition-all duration-300"
         >
           <ShoppingBag className="w-5 h-5" />
         </button>

@@ -178,41 +178,41 @@ export default function Checkout({
             <input
               type="text"
               name="address"
-              placeholder="Adresse"
+              placeholder="Address"
               value={formData.address}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
             />
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
                 name="city"
-                placeholder="Ville"
+                placeholder="City"
                 value={formData.city}
                 onChange={handleChange}
-                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
               />
               <input
                 type="text"
                 name="postal"
-                placeholder="Code Postal"
+                placeholder="Zip Code"
                 value={formData.postal}
                 onChange={handleChange}
-                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
               />
             </div>
             <select
               name="country"
               value={formData.country}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
             >
+              <option>United States</option>
+              <option>Canada</option>
+              <option>United Kingdom</option>
+              <option>Australia</option>
+              <option>Germany</option>
               <option>France</option>
-              <option>Allemagne</option>
-              <option>Belgique</option>
-              <option>Suisse</option>
-              <option>Italie</option>
-              <option>Espagne</option>
             </select>
           </div>
         )}
@@ -222,38 +222,38 @@ export default function Checkout({
             <input
               type="text"
               name="cardName"
-              placeholder="Nom sur la carte"
+              placeholder="Name on Card"
               value={formData.cardName}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
             />
             <input
               type="text"
               name="cardNumber"
-              placeholder="Numéro de carte (sans espaces)"
+              placeholder="Card Number"
               maxLength="16"
               value={formData.cardNumber}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
             />
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
                 name="cardExpiry"
-                placeholder="MM/AA"
+                placeholder="MM/YY"
                 maxLength="5"
                 value={formData.cardExpiry}
                 onChange={handleChange}
-                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
               />
               <input
                 type="text"
                 name="cardCvc"
-                placeholder="CVC"
+                placeholder="CVV"
                 maxLength="4"
                 value={formData.cardCvc}
                 onChange={handleChange}
-                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
               />
             </div>
           </div>
@@ -262,15 +262,15 @@ export default function Checkout({
         <div className="border-t border-gray-200 pt-8 mb-8">
           <div className="flex justify-between text-lg font-serif mb-8">
             <span>Total</span>
-            <span>{total.toFixed(0)}€</span>
+            <span>${total.toFixed(2)}</span>
           </div>
 
           <button
             onClick={handleSubmit}
             disabled={!validateStep() || loading}
-            className="w-full py-4 bg-black text-white text-sm tracking-widest hover:bg-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-4 bg-amber-900 text-white text-sm tracking-widest hover:bg-amber-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Traitement...' : step === 3 ? 'CONFIRMER LA COMMANDE' : 'Suivant'}
+            {loading ? 'Processing...' : step === 3 ? 'CONFIRM ORDER' : 'Next'}
           </button>
         </div>
       </div>

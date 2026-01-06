@@ -40,7 +40,7 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
     setLoading(false);
 
     if (error) {
-      alert('Erreur lors de l\'envoi du message');
+      alert('Error sending message');
       return;
     }
 
@@ -69,14 +69,14 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
               <span className="text-2xl">✓</span>
             </div>
-            <h3 className="font-serif text-2xl mb-2">Message envoyé</h3>
-            <p className="text-gray-600">Merci de nous avoir contactés. Nous vous répondrons sous peu.</p>
+            <h3 className="font-serif text-2xl mb-2 text-amber-900">Message Sent</h3>
+            <p className="text-gray-600">Thank you for contacting us. We'll respond shortly.</p>
           </div>
         ) : (
           <>
-            <h2 className="font-serif text-4xl mb-4">Contactez-Nous</h2>
+            <h2 className="font-serif text-4xl mb-4 text-amber-900">Contact Us</h2>
             <p className="text-gray-600 mb-12">
-              Des questions? Notre équipe est là pour vous aider.
+              Have questions? Our team is here to help.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6 mb-12">
@@ -84,11 +84,11 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Nom"
+                  placeholder="Name"
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+                  className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
                 />
                 <input
                   type="email"
@@ -97,18 +97,18 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+                  className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
                 />
               </div>
 
               <input
                 type="text"
                 name="subject"
-                placeholder="Sujet"
+                placeholder="Subject"
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
+                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
               />
 
               <textarea
@@ -118,33 +118,33 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                 rows={8}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black resize-none"
+                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900 resize-none"
               />
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 bg-black text-white text-sm tracking-widest hover:bg-gray-900 transition-colors disabled:opacity-50"
+                className="w-full py-4 bg-amber-900 text-white text-sm tracking-widest hover:bg-amber-800 transition-colors disabled:opacity-50"
               >
-                {loading ? 'Envoi...' : 'ENVOYER'}
+                {loading ? 'Sending...' : 'SEND MESSAGE'}
               </button>
             </form>
 
             <div className="border-t border-gray-200 pt-12">
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-sm tracking-widest mb-3">ADRESSE</h4>
+                  <h4 className="text-sm tracking-widest mb-3 text-amber-900">ADDRESS</h4>
                   <p className="text-gray-600 text-sm">
-                    4 Rue Saint-Honoré<br />
-                    75001 Paris<br />
-                    France
+                    123 Tea Garden Lane<br />
+                    Portland, OR 97204<br />
+                    United States
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest mb-3">CONTACT</h4>
+                  <h4 className="text-sm tracking-widest mb-3 text-amber-900">CONTACT</h4>
                   <p className="text-gray-600 text-sm">
-                    Tel: +33 1 42 60 57 04<br />
-                    Email: contact@goyard.fr
+                    Tel: +1 (503) 555-0123<br />
+                    Email: hello@royalrubytea.com
                   </p>
                 </div>
               </div>

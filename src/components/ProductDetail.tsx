@@ -62,15 +62,15 @@ export default function ProductDetail({ product, onClose, onAddToCart }: Product
 
             <button
               onClick={handleAddToCart}
-              className="w-full py-4 bg-black text-white text-sm tracking-widest hover:bg-gray-900 transition-colors"
+              className="w-full py-4 bg-amber-900 text-white text-sm tracking-widest hover:bg-amber-800 transition-colors"
             >
-              AJOUTER AU PANIER
+              ADD TO CART
             </button>
 
             <div className="mt-8 text-xs text-gray-600 space-y-2">
-              <p>✓ Livraison gratuite pour les commandes supérieures à 500€</p>
-              <p>✓ Retours gratuits sous 30 jours</p>
-              <p>✓ Emballage premium inclus</p>
+              <p>✓ Free shipping on orders over $50</p>
+              <p>✓ Free returns within 30 days</p>
+              <p>✓ Premium packaging included</p>
             </div>
           </div>
         </div>
