@@ -1,50 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Collections from './components/Collections';
-import Heritage from './components/Heritage';
 import Footer from './components/Footer';
-import Shop from './components/Shop';
 import Cart from './components/Cart';
 import Contact from './components/Contact';
+import HomePage from './pages/HomePage';
+import ProductsPage from './pages/ProductsPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import RitualsPage from './pages/RitualsPage';
 import { useCart } from './hooks/useCart';
-import type { Product } from './lib/supabase';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [shopOpen, setShopOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
-  const { items, addItem, removeItem, updateQuantity, clear, total } = useCart();
+  const { items, removeItem, updateQuantity, clear, total } = useCart();
+  const location = useLocation();
 
-  const handleAddToCart = (product: Product, quantity: number) => {
-    addItem(product, quantity);
-    if (!cartOpen) {
-      setCartOpen(true);
-    }
-  };
+  useEffect(() => {
+    gsap.to(window, {
+      scrollTo: 0,
+      duration: 0,
+    });
+    ScrollTrigger.refresh();
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-white">
       <Header
         cartCount={items.length}
-        onShopClick={() => setShopOpen(true)}
         onCartClick={() => setCartOpen(true)}
         onContactClick={() => setContactOpen(true)}
       />
-      {!shopOpen && !cartOpen && !contactOpen && (
-        <main>
-          <Hero onShopClick={() => setShopOpen(true)} />
-          <Collections />
-          <Heritage />
-        </main>
-      )}
-      {!shopOpen && !cartOpen && !contactOpen && <Footer />}
 
-      <Shop
-        isOpen={shopOpen}
-        onClose={() => setShopOpen(false)}
-        onAddToCart={handleAddToCart}
-      />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/products/:id" element={<ProductDetailPage />} />
+        <Route path="/rituals" element={<RitualsPage />} />
+      </Routes>
+
+      <Footer />
+
       <Cart
         items={items}
         total={total}

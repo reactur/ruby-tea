@@ -1,4 +1,14 @@
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Collections() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const collectionsRef = useRef<HTMLDivElement[]>([]);
+
   const collections = [
     {
       title: "GOLDEN CROWN",
@@ -17,11 +27,57 @@ export default function Collections() {
     }
   ];
 
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from('.collections-title', {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: '.collections-title',
+          start: 'top bottom-=100',
+          end: 'top center',
+          scrub: 1,
+        },
+      });
+
+      collectionsRef.current.forEach((collection, index) => {
+        if (!collection) return;
+
+        gsap.fromTo(
+          collection,
+          {
+            y: 100,
+            opacity: 0,
+            scale: 0.9,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            delay: index * 0.2,
+            scrollTrigger: {
+              trigger: collection,
+              start: 'top bottom-=50',
+              end: 'top center',
+              scrub: 1,
+            },
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-24 px-6 bg-white">
+    <section ref={sectionRef} className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h3 className="font-serif text-5xl md:text-6xl font-light mb-4">
+          <h3 className="collections-title font-serif text-5xl md:text-6xl font-light mb-4">
             Signature Blends
           </h3>
           <p className="text-sm tracking-wider text-gray-600">
@@ -31,12 +87,16 @@ export default function Collections() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {collections.map((collection, index) => (
-            <div
+            <Link
               key={index}
+              to="/products"
+              ref={(el) => {
+                if (el) collectionsRef.current[index] = el;
+              }}
               className="group cursor-pointer"
             >
               <div
-                className="aspect-[3/4] mb-6 transition-transform duration-500 group-hover:scale-[1.02]"
+                className="aspect-[3/4] mb-6 transition-transform duration-500 group-hover:scale-[1.02] border-2 border-black"
                 style={{ background: collection.image }}
               >
               </div>
@@ -46,7 +106,7 @@ export default function Collections() {
               <p className="text-xs tracking-wider text-gray-600 text-center">
                 {collection.subtitle}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
