@@ -27,7 +27,7 @@ export default function Checkout({
     address: '',
     city: '',
     postal: '',
-    country: 'France',
+    country: 'India',
     cardName: '',
     cardNumber: '',
     cardExpiry: '',
@@ -76,7 +76,7 @@ export default function Checkout({
     setLoading(false);
 
     if (error) {
-      alert('Erreur lors de la commande. Veuillez réessayer.');
+      alert('Error placing order. Please try again.');
       return;
     }
 
@@ -89,13 +89,13 @@ export default function Checkout({
         <div className="max-w-2xl mx-auto px-6 pb-24">
           <div className="text-center py-12">
             <div className="mb-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
-                <span className="text-2xl">✓</span>
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-6">
+                <span className="text-2xl">&#10003;</span>
               </div>
             </div>
-            <h2 className="font-serif text-4xl mb-4">Commande Confirmée</h2>
-            <p className="text-gray-600 mb-2">Numéro de commande: #{Math.random().toString(36).substr(2, 9).toUpperCase()}</p>
-            <p className="text-gray-600 mb-8">Un email de confirmation a été envoyé à {formData.email}</p>
+            <h2 className="font-serif text-4xl mb-4">Order Confirmed</h2>
+            <p className="text-gray-600 mb-2">Order number: #{Math.random().toString(36).substr(2, 9).toUpperCase()}</p>
+            <p className="text-gray-600 mb-8">A confirmation email has been sent to {formData.email}</p>
 
             <button
               onClick={() => {
@@ -104,7 +104,7 @@ export default function Checkout({
               }}
               className="px-8 py-3 bg-black text-white text-sm tracking-widest hover:bg-gray-900 transition-colors"
             >
-              Retour à l'accueil
+              Return to Home
             </button>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function Checkout({
           className="flex items-center gap-2 mb-8 text-sm hover:opacity-70"
         >
           <ChevronLeft className="w-4 h-4" />
-          Retour au panier
+          Back to Cart
         </button>
 
         <div className="mb-12">
@@ -136,9 +136,9 @@ export default function Checkout({
           </div>
 
           <h2 className="font-serif text-3xl mb-8">
-            {step === 1 && 'Informations Personnelles'}
-            {step === 2 && 'Adresse de Livraison'}
-            {step === 3 && 'Paiement'}
+            {step === 1 && 'Personal Information'}
+            {step === 2 && 'Shipping Address'}
+            {step === 3 && 'Payment'}
           </h2>
         </div>
 
@@ -148,7 +148,7 @@ export default function Checkout({
               <input
                 type="text"
                 name="firstName"
-                placeholder="Prénom"
+                placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleChange}
                 className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
@@ -156,7 +156,7 @@ export default function Checkout({
               <input
                 type="text"
                 name="lastName"
-                placeholder="Nom"
+                placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleChange}
                 className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
@@ -181,7 +181,7 @@ export default function Checkout({
               placeholder="Address"
               value={formData.address}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
             />
             <div className="grid grid-cols-2 gap-4">
               <input
@@ -190,7 +190,7 @@ export default function Checkout({
                 placeholder="City"
                 value={formData.city}
                 onChange={handleChange}
-                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
               />
               <input
                 type="text"
@@ -198,21 +198,21 @@ export default function Checkout({
                 placeholder="Zip Code"
                 value={formData.postal}
                 onChange={handleChange}
-                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
               />
             </div>
             <select
               name="country"
               value={formData.country}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
             >
+              <option>India</option>
               <option>United States</option>
               <option>Canada</option>
               <option>United Kingdom</option>
               <option>Australia</option>
               <option>Germany</option>
-              <option>France</option>
             </select>
           </div>
         )}
@@ -225,35 +225,35 @@ export default function Checkout({
               placeholder="Name on Card"
               value={formData.cardName}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
             />
             <input
               type="text"
               name="cardNumber"
               placeholder="Card Number"
-              maxLength="16"
+              maxLength={16}
               value={formData.cardNumber}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+              className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
             />
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
                 name="cardExpiry"
                 placeholder="MM/YY"
-                maxLength="5"
+                maxLength={5}
                 value={formData.cardExpiry}
                 onChange={handleChange}
-                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
               />
               <input
                 type="text"
                 name="cardCvc"
                 placeholder="CVV"
-                maxLength="4"
+                maxLength={4}
                 value={formData.cardCvc}
                 onChange={handleChange}
-                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+                className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
               />
             </div>
           </div>
@@ -268,7 +268,7 @@ export default function Checkout({
           <button
             onClick={handleSubmit}
             disabled={!validateStep() || loading}
-            className="w-full py-4 bg-amber-900 text-white text-sm tracking-widest hover:bg-amber-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-4 bg-black text-white text-sm tracking-widest hover:bg-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Processing...' : step === 3 ? 'CONFIRM ORDER' : 'Next'}
           </button>

@@ -66,15 +66,15 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
 
         {submitted ? (
           <div className="text-center py-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
-              <span className="text-2xl">✓</span>
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-6">
+              <span className="text-2xl">&#10003;</span>
             </div>
-            <h3 className="font-serif text-2xl mb-2 text-amber-900">Message Sent</h3>
+            <h3 className="font-serif text-2xl mb-2">Message Sent</h3>
             <p className="text-gray-600">Thank you for contacting us. We'll respond shortly.</p>
           </div>
         ) : (
           <>
-            <h2 className="font-serif text-4xl mb-4 text-amber-900">Contact Us</h2>
+            <h2 className="font-serif text-4xl mb-4">Contact Us</h2>
             <p className="text-gray-600 mb-12">
               Have questions? Our team is here to help.
             </p>
@@ -88,7 +88,7 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+                  className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
                 />
                 <input
                   type="email"
@@ -97,7 +97,7 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+                  className="px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
                 />
               </div>
 
@@ -108,7 +108,7 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900"
+                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black"
               />
 
               <textarea
@@ -118,13 +118,13 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                 rows={8}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-amber-900 resize-none"
+                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:border-black resize-none"
               />
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 bg-amber-900 text-white text-sm tracking-widest hover:bg-amber-800 transition-colors disabled:opacity-50"
+                className="w-full py-4 bg-black text-white text-sm tracking-widest hover:bg-gray-900 transition-colors disabled:opacity-50"
               >
                 {loading ? 'Sending...' : 'SEND MESSAGE'}
               </button>
@@ -133,7 +133,7 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
             <div className="border-t border-gray-200 pt-12">
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-sm tracking-widest mb-3 text-amber-900">ADDRESS</h4>
+                  <h4 className="text-sm tracking-widest mb-3">ADDRESS</h4>
                   <p className="text-gray-600 text-sm">
                     G-208, Office Block<br />
                     City Centra, Matigara<br />
@@ -141,7 +141,7 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-sm tracking-widest mb-3 text-amber-900">CONTACT</h4>
+                  <h4 className="text-sm tracking-widest mb-3">CONTACT</h4>
                   <p className="text-gray-600 text-sm">
                     Tel: +91 99303 82663<br />
                     Email: info@royalrubytea.com

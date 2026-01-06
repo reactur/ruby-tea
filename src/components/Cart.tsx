@@ -48,14 +48,14 @@ export default function Cart({
           <X className="w-6 h-6" />
         </button>
 
-        <h2 className="font-serif text-4xl mb-8 text-amber-900">Your Cart</h2>
+        <h2 className="font-serif text-4xl mb-8">Your Cart</h2>
 
         {items.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-gray-600 mb-6">Your cart is empty</p>
             <button
               onClick={onClose}
-              className="px-6 py-2 border border-amber-900 hover:bg-amber-900 hover:text-white transition-colors text-sm tracking-wider"
+              className="px-6 py-2 border border-black hover:bg-black hover:text-white transition-colors text-sm tracking-wider"
             >
               Continue Shopping
             </button>
@@ -90,7 +90,7 @@ export default function Cart({
                     </p>
                     <button
                       onClick={() => onRemove(item.id)}
-                      className="text-sm text-red-600 hover:text-red-700"
+                      className="text-sm text-gray-600 hover:text-black"
                     >
                       Remove
                     </button>
@@ -107,13 +107,13 @@ export default function Cart({
 
               <button
                 onClick={() => setShowCheckout(true)}
-                className="w-full py-4 bg-amber-900 text-white text-sm tracking-widest hover:bg-amber-800 transition-colors mb-3"
+                className="w-full py-4 bg-black text-white text-sm tracking-widest hover:bg-gray-900 transition-colors mb-3"
               >
                 PROCEED TO CHECKOUT
               </button>
               <button
                 onClick={onClose}
-                className="w-full py-3 border border-amber-900 text-sm tracking-widest hover:bg-amber-900 hover:text-white transition-colors"
+                className="w-full py-3 border border-black text-sm tracking-widest hover:bg-black hover:text-white transition-colors"
               >
                 Continue Shopping
               </button>

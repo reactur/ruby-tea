@@ -1,11 +1,11 @@
 export default function Heritage() {
   return (
-    <section className="py-32 px-6 bg-gradient-to-br from-amber-50 to-orange-50">
+    <section className="py-32 px-6 bg-gray-50">
       <div className="max-w-4xl mx-auto text-center">
-        <h3 className="font-serif text-5xl md:text-6xl font-light mb-8 text-amber-900">
+        <h3 className="font-serif text-5xl md:text-6xl font-light mb-8">
           The Essence
         </h3>
-        <div className="space-y-6 text-amber-900 leading-relaxed">
+        <div className="space-y-6 text-gray-700 leading-relaxed">
           <p className="text-lg">
             Royal Ruby Ritual transforms the act of drinking tea into a sacred ceremony.
             Each blend is a poetic journey, crafted to nourish the soul and awaken the senses.
@@ -22,19 +22,19 @@ export default function Heritage() {
           </p>
         </div>
 
-        <div className="mt-16 pt-16 border-t border-amber-300">
+        <div className="mt-16 pt-16 border-t border-gray-300">
           <div className="grid grid-cols-3 gap-8">
             <div>
-              <p className="font-serif text-4xl mb-2 text-amber-900">5</p>
-              <p className="text-sm tracking-wider text-amber-700">SIGNATURE BLENDS</p>
+              <p className="font-serif text-4xl mb-2">5</p>
+              <p className="text-sm tracking-wider text-gray-600">SIGNATURE BLENDS</p>
             </div>
             <div>
-              <p className="font-serif text-4xl mb-2 text-amber-900">100%</p>
-              <p className="text-sm tracking-wider text-amber-700">PREMIUM QUALITY</p>
+              <p className="font-serif text-4xl mb-2">100%</p>
+              <p className="text-sm tracking-wider text-gray-600">PREMIUM QUALITY</p>
             </div>
             <div>
-              <p className="font-serif text-4xl mb-2 text-amber-900">SACRED</p>
-              <p className="text-sm tracking-wider text-amber-700">RITUAL</p>
+              <p className="font-serif text-4xl mb-2">SACRED</p>
+              <p className="text-sm tracking-wider text-gray-600">RITUAL</p>
             </div>
           </div>
         </div>
