@@ -29,32 +29,32 @@ const CircleProduct: React.FC<CircleProductProps> = ({
   const opacity = useTransform(
     scrollYProgress,
     [start - 0.1, start, end - 0.1, end],
-    [0.2, 1, 1, 0.2]
+    [0.15, 1, 1, 0.15]
   );
 
   const scale = useTransform(
     scrollYProgress,
     [start - 0.1, start, end - 0.1, end],
-    [0.7, 1, 1, 0.7]
+    [0.6, 1, 1, 0.6]
   );
 
   return (
     <Link to={`/products/${product.id}`}>
       <motion.div
-        className="absolute w-48 h-48"
+        className="absolute w-32 h-32"
         style={{
           transform: `rotate(-${(index / total) * 360}deg)`,
-          transformOrigin: 'center 28rem',
+          transformOrigin: 'center 22rem',
           opacity,
-          top: '-6rem',
-          left: 'calc(50% - 6rem)',
+          top: '-4rem',
+          left: 'calc(50% - 4rem)',
         }}
       >
         <motion.div
-          className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-200 rounded-full border-4 border-black flex items-center justify-center group hover:scale-110 transition-transform"
+          className="w-full h-full bg-white rounded-full border border-black flex items-center justify-center hover:bg-gray-50 transition-colors"
           style={{ scale }}
         >
-          <span className="text-5xl font-serif font-bold" style={{ transform: `rotate(${(index / total) * 360}deg)` }}>
+          <span className="text-3xl font-serif font-light" style={{ transform: `rotate(${(index / total) * 360}deg)` }}>
             {product.name.charAt(0)}
           </span>
         </motion.div>
@@ -81,49 +81,36 @@ const TextBlock: React.FC<TextBlockProps> = ({
   const y = useTransform(
     scrollYProgress,
     [start - 0.1, start, end - 0.1, end],
-    [50, 0, 0, -50]
+    [30, 0, 0, -30]
   );
 
   return (
     <motion.div
-      className="absolute right-0 w-full max-w-xl pr-12 pointer-events-none"
+      className="absolute right-24 w-full max-w-md pointer-events-none"
       style={{ opacity, y }}
     >
       <Link
         to={`/products/${product.id}`}
         className="block pointer-events-auto"
       >
-        <div className="text-right space-y-4">
-          <div className="inline-block px-4 py-1 border-2 border-black text-xs tracking-widest font-semibold">
+        <div className="text-right space-y-3">
+          <div className="inline-block px-3 py-1 border border-black text-xs tracking-[0.2em] font-light">
             {String(index + 1).padStart(2, '0')}
           </div>
-          <h2 className="font-serif text-6xl md:text-7xl font-bold leading-tight tracking-tight">
+          <h2 className="font-serif text-5xl md:text-6xl font-light leading-tight tracking-tight">
             {product.name}
           </h2>
-          <p className="text-gray-700 text-xl leading-relaxed">
+          <p className="text-gray-600 text-base leading-relaxed max-w-sm ml-auto">
             {product.description}
           </p>
-          <div className="pt-4">
-            <span className="inline-flex items-center text-3xl font-serif font-bold text-gray-900">
+          <div className="pt-2">
+            <span className="text-2xl font-serif font-light text-gray-900">
               ${product.price}
             </span>
           </div>
-          <div className="pt-2">
-            <span className="inline-flex items-center text-sm tracking-widest border-b-2 border-black pb-1 hover:border-gray-400 transition-colors">
-              DISCOVER RITUAL
-              <svg
-                className="w-4 h-4 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+          <div className="pt-3">
+            <span className="inline-flex items-center text-xs tracking-[0.2em] border-b border-black pb-1 hover:border-gray-400 transition-colors">
+              VIEW
             </span>
           </div>
         </div>
@@ -161,28 +148,23 @@ export default function ProductsPage() {
   if (products.length === 0) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-black border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-sm tracking-widest text-gray-600">LOADING BLENDS...</p>
-        </div>
+        <div className="w-12 h-12 border border-black border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div ref={containerRef} className="relative w-full" style={{ height: '500vh' }}>
+    <div ref={containerRef} className="relative w-full bg-white" style={{ height: '500vh' }}>
       <div className="sticky top-0 h-screen flex items-center justify-start overflow-hidden">
-        <div className="absolute left-12 max-w-md z-10">
-          <h1 className="font-serif text-6xl md:text-7xl font-bold mb-4 tracking-tight">
-            Signature Blends
+        <div className="absolute left-16 max-w-sm">
+          <p className="text-xs tracking-[0.3em] text-gray-500 mb-4">COLLECTION</p>
+          <h1 className="font-serif text-5xl md:text-6xl font-light mb-2 tracking-tight leading-tight">
+            Signature<br />Blends
           </h1>
-          <p className="text-gray-600 text-lg tracking-wider">
-            FIVE SACRED EXPERIENCES
-          </p>
         </div>
 
         <motion.div
-          className="absolute left-[-10%] w-[56rem] h-[56rem] rounded-full border border-gray-300"
+          className="absolute left-[-8%] w-[44rem] h-[44rem] rounded-full border border-gray-200"
           style={{ rotate: rotation }}
         >
           {products.map((product, index) => (
